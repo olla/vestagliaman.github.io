@@ -18,7 +18,12 @@
 --secndry-color : #9daaf2;
 --thirtry-color : #ff6a3d;
 --quatery-color : #f4db7d;
-} 
+}
+*
+{
+padding         : 0px;
+margin          : 0px;
+}
 html
 {
 font-size       : calc(1em + 1vw);
@@ -36,6 +41,8 @@ background-color: var(--primary-color);
 h1
 {
 font-size       : 2em;
+display         : flex;
+flex-flow       : row wrap;
 }
 h2
 {
@@ -98,10 +105,6 @@ label:nth-child(1) > input[type=search]
 {
 color           : var(--quatery-color);
 }
-label:nth-child(1):hover > input[type=search]
-{
-border-bottom   : 1px dotted var(--quatery-color);
-}
 label:nth-child(2)
 {
 background-color: var(--secndry-color);
@@ -111,10 +114,6 @@ label:nth-child(2) > input[type=search]
 {
 color           : var(--secndry-color);
 }
-label:nth-child(2):hover > input[type=search]
-{
-border-bottom   : 1px dotted var(--secndry-color);
-}
 label:nth-child(3)
 {
 background-color: var(--thirtry-color);
@@ -123,10 +122,6 @@ color           : var(--thirtry-color);
 label:nth-child(3) > input[type=search]
 {
 color           : var(--thirtry-color);
-}
-label:nth-child(3):hover > input[type=search]
-{
-border-bottom   : 1px dotted var(--thirtry-color);
 }
 label:hover
 {
@@ -160,7 +155,7 @@ user-select: none;
 var Id1 = 'escapeMacroed';
 var Id2 = 'squareBracked';
 var Id3 = 'circleBracked';
-var MAT = .7;
+var MAT = 1;
 function bodyOnload(e) 
 {
 inputOnchange(e,Id1);
@@ -197,8 +192,8 @@ function inputOnchange(e,anId)
 let thisElementOfDOM = document.getElementById(anId);
 let charactersString = thisElementOfDOM.value;
 let charactersNumber = charactersString.length;
-thisElementOfDOM.style.width = charactersNumber*MAT + "em";
-if ( charactersNumber < 2 ) { thisElementOfDOM.style.width = "1em"; }
+thisElementOfDOM.style.width = charactersNumber*MAT + "ex";
+if ( charactersNumber < 2 ) { thisElementOfDOM.style.width = "1ex"; }
 }
 </script>
 </body>
