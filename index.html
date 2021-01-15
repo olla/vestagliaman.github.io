@@ -1,7 +1,183 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<head>
+<meta charset="utf-8">
+<title>Untitled</title>
+<meta name="description" content="This is an example of a meta description.">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<link rel="stylesheet" type="text/css" href="theme.css">
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" async></script>
+<![endif]-->
+<style>
+:root
+{
+--primary-color : #1a2238;
+--secndry-color : #9daaf2;
+--thirtry-color : #ff6a3d;
+--quatery-color : #f4db7d;
+} 
+html
+{
+font-size       : calc(1em + 1vw);
+width           : 99vw;
+height          : 99vh;
+padding         : 0px;
+margin          : 0px;
+}
+body
+{
+width           : inherit;
+height          : inherit;
+background-color: var(--primary-color);
+}
+h1
+{
+font-size       : 2em;
+}
+h2
+{
+font-size       : 1.5em;
+}
+button,input
+{
+font-size       : inherit;
+}
+div.container
+{
+width           : inherit;
+height          : inherit;
+display         : flex;
+justify-content : center;
+align-items     : center;
+}
+input[type=search],option
+{
+color           : white;
+background-color: var(--primary-color);
+border          : none;
+text-align      : center;
+font-family     : monospace;
+font-style      : normal;
+font-variant    : normal;
+font-weight     : 100;
+outline         : none;
+}
+label[for=escapeMacroed]:before
+{
+content         : "\\";
+}
+label[for=escapeMacroed]:after
+{
+content         : "";
+}
+label[for=squareBracked]:before
+{
+content         : "[";
+}
+label[for=squareBracked]:after
+{
+content         : "]";
+}
+label[for=circleBracked]:before{
+content         : "{";
+}
+label[for=circleBracked]:after
+{
+content         : "}";
+}
+label:nth-child(1)
+{
+background-color: var(--quatery-color);
+color           : var(--quatery-color);
+}
+label:nth-child(1) > input[type=search]
+{
+color           : var(--quatery-color);
+}
+label:nth-child(1):hover > input[type=search]
+{
+border-bottom   : 1px dotted var(--quatery-color);
+}
+label:nth-child(2)
+{
+background-color: var(--secndry-color);
+color           : var(--secndry-color);
+}
+label:nth-child(2) > input[type=search]
+{
+color           : var(--secndry-color);
+}
+label:nth-child(2):hover > input[type=search]
+{
+border-bottom   : 1px dotted var(--secndry-color);
+}
+label:nth-child(3)
+{
+background-color: var(--thirtry-color);
+color           : var(--thirtry-color);
+}
+label:nth-child(3) > input[type=search]
+{
+color           : var(--thirtry-color);
+}
+label:nth-child(3):hover > input[type=search]
+{
+border-bottom   : 1px dotted var(--thirtry-color);
+}
+label:hover
+{
+color           : var(--primary-color);
+}
+</style>
+</head>
+<body onload="bodyOnload()">
+<div class="container">
+<div class="child">
+<pre><form><h1><label for="escapeMacroed"><input spellcheck="false" onkeyup="inputOnkeyup(this.id)" onkeydown="inputOnkeydown(this.id)" onchange="inputOnchange(this.id)" onpaste="inputOnpaste(this.id)" onselect="inputOnselect(this.id)" Oninput="inputOninput(this.id)" type="search" id="escapeMacroed" name="eM" list="eM" maxlength="2"></input><datalist id="eM"><option value="VV"><option value="VB"><option value="TB"><option value="TV"></datalist></label><label for="squareBracked"><input spellcheck="false" onkeyup="inputOnkeyup(this.id)" onkeydown="inputOnkeydown(this.id)" onchange="inputOnchange(this.id)" onpaste="inputOnpaste(this.id)" onselect="inputOnselect(this.id)" Oninput="inputOninput(this.id)" type="search" id="squareBracked" name="sB" list="sB" maxlength="7"></input><datalist id="sB"><option value="longa"><option value="simplex"><option value="duplex"><option value="mix"><option value=""></datalist></label><label for="circleBracked"><input spellcheck="false" onkeyup="inputOnkeyup(this.id)" onkeydown="inputOnkeydown(this.id)" onchange="inputOnchange(this.id)" onpaste="inputOnpaste(this.id)" onselect="inputOnselect(this.id)" Oninput="inputOninput(this.id)" type="search" id="circleBracked" name="cB" list="cB"></input><datalist id="sB"><option value="longa"><option value="simplex"><option value="duplex"><option value="mix"><option value=""></datalist></label></h1></form></pre>
+</div>
+</div>
+<script>
+var Id1 = 'escapeMacroed';
+var Id2 = 'squareBracked';
+var Id3 = 'circleBracked';
+var MAT = .7;
+function bodyOnload() 
+{
+inputOnchange(Id1, MAT);
+inputOnchange(Id2, MAT);
+inputOnchange(Id3, MAT);
+}
+function inputOnkeydown(anId) 
+{
+inputOnchange(anId);
+}
+function inputOnkeyup(anId) 
+{
+inputOnchange(anId);
+}
+function inputOnselect(anId) 
+{
+inputOnchange(anId);
+}
+function inputOninput(anId) 
+{
+inputOnchange(anId);
+}
+function inputOnpaste(anId) 
+{
+inputOnchange(anId);
+}
+function inputOnchange(anId) 
+{
+let thisElementOfDOM = document.getElementById(anId);
+let charactersString = thisElementOfDOM.value;
+let charactersNumber = charactersString.length;
+thisElementOfDOM.style.width = charactersNumber*MAT + "em";
+if ( charactersNumber < 2 ) { thisElementOfDOM.style.width = "1em"; }
+}
+</script>
 </body>
 </html>
