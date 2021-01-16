@@ -1,0 +1,133 @@
+:root
+{
+--primary-color : #1a2238;
+--secndry-color : #9daaf2;
+--thirtry-color : #ff6a3d;
+--quatery-color : #f4db7d;
+}
+*
+{
+padding         : 0px;
+margin          : 0px;
+}
+html
+{
+font-size       : calc(1em + 1vw);
+width           : 95vw;
+height          : 95vh;
+padding         : 0px;
+margin          : 0px;
+}
+body
+{
+width           : inherit;
+height          : inherit;
+background-color: var(--primary-color);
+}
+h1
+{
+font-size       : 2em;
+display         : flex;
+flex-flow       : row;
+flex-wrap       : wrap;
+max-width       : 75vw;
+}
+h2
+{
+font-size       : 1.5em;
+}
+button,input
+{
+font-size       : inherit;
+}
+div.containing-centre
+{
+width           : inherit;
+height          : inherit;
+display         : flex;
+justify-content : center;
+align-items     : center;
+}
+input[type=search],option
+{
+color           : white;
+background-color: var(--primary-color);
+border          : none;
+text-align      : center;
+font-family     : monospace;
+font-variant    : small-caps;
+font-weight     : 100;
+outline         : none;
+line-height     : 1ex;
+max-width       : 95vw;
+}
+label[for=escapeMacroed]:before
+{
+content         : "\\";
+}
+label[for=escapeMacroed]:after
+{
+content         : "";
+}
+label[for=squareBracked]:before
+{
+content         : "[";
+}
+label[for=squareBracked]:after
+{
+content         : "]";
+}
+label[for=circleBracked]:before{
+content         : "{";
+}
+label[for=circleBracked]:after
+{
+content         : "}";
+}
+label:nth-child(1)
+{
+background-color: var(--quatery-color);
+color           : var(--quatery-color);
+}
+label:nth-child(1) > input[type=search]
+{
+color           : var(--quatery-color);
+}
+label:nth-child(2)
+{
+background-color: var(--secndry-color);
+color           : var(--secndry-color);
+}
+label:nth-child(2) > input[type=search]
+{
+color           : var(--secndry-color);
+}
+label:nth-child(3)
+{
+background-color: var(--thirtry-color);
+color           : var(--thirtry-color);
+}
+label:nth-child(3) > input[type=search]
+{
+color           : var(--thirtry-color);
+}
+label:hover
+{
+color           : var(--primary-color);
+}
+label:nth-child(3) > input[type=search] > span.escape
+{
+color           : var(--quatery-color);
+}
+label:nth-child(3) > input[type=search] > span.eludes
+{
+color           : var(--thirtdy-color);
+}
+.unselectable
+{
+-webkit-user-select: none;
+-webkit-touch-callout: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
