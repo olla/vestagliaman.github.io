@@ -3,6 +3,12 @@
 	--Id1-color: #f4db7d;
 	--Id2-color: #9daaf2;
 	--Id3-color: #ff6a3d;
+	--Id1      : "\\"   ;
+	--Is1      : ""     ;
+	--Id2      : "["    ;
+	--Is2      : "]"    ;
+	--Id3      : "{"    ;
+	--Is3      : "}"    ;
 }
 
 * {
@@ -64,28 +70,36 @@ option {
 	width: 1ex;
 }
 
+input[type=file] {
+	visibility:hidden;
+}
+
+label[for=file] {
+	color:white;
+}
+
 label[for=Id1]:before {
-	content: "\\";
+	content: var(--Id1);
 }
 
 label[for=Id1]:after {
-	content: "";
+	content: var(--Is1);
 }
 
 label[for=Id2]:before {
-	content: "[";
+	content: var(--Id2);
 }
 
 label[for=Id2]:after {
-	content: "]";
+	content: var(--Is2);
 }
 
 label[for=Id3]:before {
-	content : "{";
+	content : var(--Id3);
 }
 
 label[for=Id3]:after {
-	content: "}";
+	content: var(--Is3);
 }
 
 label:nth-child(1) {
