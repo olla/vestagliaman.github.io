@@ -1,44 +1,58 @@
-var Id1 = 'escapeMacroed';
-var Id2 = 'squareBracked';
-var Id3 = 'circleBracked';
-var MAT = 1;
-window.onload = function bodyOnload(e) 
-{
-inputOnchange(e,Id1);
-inputOnchange(e,Id2);
-inputOnchange(e,Id3);
+/*global console*/
+/*global document*/
+
+var Id1 = 'Id1';
+var Id2 = 'Id2';
+var Id3 = 'Id3';
+var MAT = 1.1;
+
+function doclick(e) {
+	"use strict";
+	document.body.style.backgroundColor = "var(--" + e.target.id + "-color)";
+	document.getElementById(Id1).parentNode.style.color = "var(--" + Id1 + "-color)";
+	document.getElementById(Id2).parentNode.style.color = "var(--" + Id2 + "-color)";
+	document.getElementById(Id3).parentNode.style.color = "var(--" + Id3 + "-color)";
+	e.target.parentNode.style.color = "var(--DOM-color)";
 }
-function inputOnkeydown(e,anId) 
-{
-inputOnchange(e,anId);
-console.log(anId + "onKeydown: " + e.code);
+function dokeyup(e) {
+	"use strict";
+	console.log(e.target.id + "--[dwn]--" + e.target.value);
+	// eslint-disable-line no-console
+	e.target.style.width = e.target.value.length * MAT + "ex";
+	if (e.target.value.length < 2) { e.target.style.width = "1ex"; }
+	// background
+	//document.body.style.backgroundColor = "var(--DOM-color)";
 }
-function inputOnkeyup(e,anId) 
-{
-inputOnchange(e,anId);
-console.log(anId + "onKeyup  : " + e.code);
+function dokeydown(e) {
+	"use strict";
+	console.log(e.target.id + "--[kup]--" + e.target.value);
+	// eslint-disable-line no-console
+	e.target.style.width = e.target.value.length * MAT + "ex";
+	if (e.target.value.length < 2) { e.target.style.width = "1ex"; }
+	// background
+	document.body.style.backgroundColor = "var(--" + e.target.id + "-color)";
 }
-function inputOnselect(e,anId) 
-{
-inputOnchange(e,anId);
-console.log(anId + "onSelect : " + e.code);
+function theDomisloaded() {
+	"use strict";
+ console.info('DOM');
+	// eslint-disable-line no-console
 }
-function inputOninput(e,anId) 
-{
-inputOnchange(e,anId);
-console.log(anId + "onInput  : " + e.code);
+function bodyclick() {
+	"use strict";
+	document.body.style.backgroundColor = "var(--" + e.target.id + "-color)";
 }
-function inputOnpaste(e,anId) 
-{
-inputOnchange(e,anId);
-console.log(anId + "onPaste  : " + e.code);
-}
-function inputOnchange(e,anId) 
-{
-let thisElementOfDOM = document.getElementById(anId);
-let charactersString = thisElementOfDOM.value;
-let charactersNumber = charactersString.length;
-console.log(anId + "onChange : " + charactersString);
-thisElementOfDOM.style.width = charactersNumber*MAT + "ex";
-if ( charactersNumber < 2 ) { thisElementOfDOM.style.width = "1ex"; }
-}
+
+document.addEventListener('DOMContentLoaded', theDomisloaded);
+document.body.addEventListener('click', bodyclick);
+document.getElementById(Id1).value = "";
+document.getElementById(Id2).value = "";
+document.getElementById(Id3).value = "";
+document.getElementById(Id1).addEventListener('click', doclick);
+document.getElementById(Id2).addEventListener('click', doclick);
+document.getElementById(Id3).addEventListener('click', doclick);
+document.getElementById(Id1).addEventListener('keydown', dokeydown);
+document.getElementById(Id2).addEventListener('keydown', dokeydown);
+document.getElementById(Id3).addEventListener('keydown', dokeydown);
+document.getElementById(Id1).addEventListener('keyup', dokeyup);
+document.getElementById(Id2).addEventListener('keyup', dokeyup);
+document.getElementById(Id3).addEventListener('keyup', dokeyup);
