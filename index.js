@@ -1,10 +1,13 @@
 /*global console*/
 /*global document*/
+/*global FileReader*/
 
-var Id1 = 'Id1';
-var Id2 = 'Id2';
-var Id3 = 'Id3';
-var MAT = 1.1;
+var IfI = 'file'; // input
+var Id1 = 'Id1';  // first search
+var Id2 = 'Id2';  // second search
+var Id3 = 'Id3';  // third search
+var MAT = 1.1;    // UI/UX param
+var OfI = "";     // output
 
 function doclick(e) {
 	"use strict";
@@ -19,6 +22,11 @@ function doclick(e) {
 	document.getElementById(Id2).style.color = "var(--" + Id2 + "-color)";
 	document.getElementById(Id3).style.color = "var(--" + Id3 + "-color)";
 	e.target.parentNode.style.color = "var(--DOM-color)";
+}
+
+function modifyTitle() {
+	"use strict";
+	document.title = "\\" + document.getElementById(Id1).value + "[" + document.getElementById(Id2).value  + "]" + "{"  + document.getElementById(Id3).value + "}";
 }
 
 function dokeyup(e) {
@@ -67,9 +75,32 @@ function theDomisloaded() {
 	/* eslint-enable no-console */
 }
 
-function modifyTitle() {
+function printOfI() {
 	"use strict";
-	document.title = "\\" + document.getElementById(Id1).value + "[" + document.getElementById(Id2).value  + "]" + "{"  + document.getElementById(Id3).value + "}";
+	/* eslint-disable no-console */
+	console.log(OfI);
+	/* eslint-enable no-console */
+}
+
+function ollaOfI() {
+	"use strict";
+	var olla = (OfI.split(document.getElementById(Id1).value) || []).length;
+	/* eslint-disable no-console */
+	console.log(olla);
+	/* eslint-enable no-console */
+}
+
+function readFile(e1) {
+	"use strict";
+	var files = e1.target.files, file = files[0], reader = new FileReader();
+	reader.onload = function (e2) {
+		/* eslint-disable no-console */
+		OfI = e2.target.result;
+		//console.log(OfI);
+		/* eslint-enable no-console */
+	};
+	OfI = reader.readAsText(file);
+	printOfI();
 }
 
 document.addEventListener('DOMContentLoaded', theDomisloaded);
@@ -88,3 +119,6 @@ document.getElementById(Id3).addEventListener('keydown', dokeydown);
 document.getElementById(Id1).addEventListener('keyup', dokeyup);
 document.getElementById(Id2).addEventListener('keyup', dokeyup);
 document.getElementById(Id3).addEventListener('keyup', dokeyup);
+document.getElementById(IfI).addEventListener('change', readFile, false);
+ollaOfI();
+printOfI();
