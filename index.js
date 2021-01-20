@@ -37,13 +37,8 @@ function theDomisloaded() {
  console.info('DOM');
 	// eslint-disable-line no-console
 }
-function bodyclick() {
-	"use strict";
-	document.body.style.backgroundColor = "var(--DOM-color)";
-}
 
 document.addEventListener('DOMContentLoaded', theDomisloaded);
-document.body.addEventListener('click', bodyclick);
 document.getElementById(Id1).value = "";
 document.getElementById(Id2).value = "";
 document.getElementById(Id3).value = "";
