@@ -7,6 +7,7 @@ var Id1 = 'Id1';  // first search
 var Id2 = 'Id2';  // second search
 var Id3 = 'Id3';  // third search
 var MAT = 1.1;    // UI/UX param
+var CLC = 'math'; // Calculus index
 var OfI = "";     // output
 
 function doclick(e) {
@@ -23,6 +24,17 @@ function doclick(e) {
 	document.getElementById(Id3).style.color = "var(--" + Id3 + "-color)";
 	e.target.parentNode.style.color = "var(--DOM-color)";
 }
+
+
+function ollaOfI() {
+	"use strict";
+	var oll1 = (OfI.split("\\" + document.getElementById(Id1).value) || []).length, oll2 = (OfI.split("[" + document.getElementById(Id2).value + "]") || []).length,	oll3 = (OfI.split("{" + document.getElementById(Id3).value + "}") || []).length;
+	/* eslint-disable no-console */
+	console.log(oll1, oll2, oll3);
+	/* eslint-enable no-console */
+	document.getElementById(CLC).innerHTML = "\\" + oll1 + "[" + oll2  + "]" + "{"  + oll3 + "}";
+}
+
 
 function modifyTitle() {
 	"use strict";
@@ -66,6 +78,7 @@ function dokeydown(e) {
 	document.body.style.backgroundColor = "var(--" + e.target.id + "-color)";
 	e.target.style.backgroundColor = "var(--" + e.target.id + "-color)";
 	e.target.style.color = "var(--DOM-color)";
+	ollaOfI();
 }
 
 function theDomisloaded() {
@@ -82,14 +95,6 @@ function printOfI() {
 	/* eslint-enable no-console */
 }
 
-function ollaOfI() {
-	"use strict";
-	var olla = (OfI.split(document.getElementById(Id1).value) || []).length;
-	/* eslint-disable no-console */
-	console.log(olla);
-	/* eslint-enable no-console */
-}
-
 function readFile(e1) {
 	"use strict";
 	var files = e1.target.files, file = files[0], reader = new FileReader();
@@ -100,13 +105,13 @@ function readFile(e1) {
 		/* eslint-enable no-console */
 	};
 	OfI = reader.readAsText(file);
-	printOfI();
 }
 
 document.addEventListener('DOMContentLoaded', theDomisloaded);
 document.getElementById(Id1).value = "";
 document.getElementById(Id2).value = "";
 document.getElementById(Id3).value = "";
+document.getElementById(Id1).addEventListener('math', ollaOfI);
 document.getElementById(Id1).addEventListener('click', doclick);
 document.getElementById(Id2).addEventListener('click', doclick);
 document.getElementById(Id3).addEventListener('click', doclick);
