@@ -1,126 +1,128 @@
-:root
-{
---DOM-color : #1a2238;
---Id1-color : #f4db7d;
---Id2-color : #9daaf2;
---Id3-color : #ff6a3d;
+:root {
+	--DOM-color: #1a2238;
+	--Id1-color: #f4db7d;
+	--Id2-color: #9daaf2;
+	--Id3-color: #ff6a3d;
 }
-*
-{
-padding         : 0px;
-margin          : 0px;
+
+* {
+	padding: 0px;
+	margin: 0px;
 }
-html
-{
-font-size       : calc(1em + 1vw);
-width           : 95vw;
-height          : 95vh;
-padding         : 0px;
-margin          : 0px;
+
+html {
+	font-size: calc(1em + 1vw);
+	width: 95vw;
+	height: 95vh;
+	padding: 0px;
+	margin: 0px;
 }
-body
-{
-width           : inherit;
-height          : inherit;
-background-color: var(--DOM-color);
+
+body {
+	width: inherit;
+	height: inherit;
+	background-color: var(--DOM-color);
 }
-h1
-{
-font-size       : 2em;
-display         : flex;
-flex-flow       : row;
-flex-wrap       : wrap;
-max-width       : 75vw;
+
+h1 {
+	font-size: 2em;
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+	max-width: 75vw;
 }
-h2
-{
-font-size       : 1.5em;
+
+h2 {
+	font-size: 1.5em;
 }
-button,input
-{
-font-size       : inherit;
+
+button,
+input {
+	font-size: inherit;
 }
-div.containing-centre
-{
-width           : inherit;
-height          : inherit;
-display         : flex;
-justify-content : center;
-align-items     : center;
+
+div.containing-centre {
+	width: inherit;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-input[type=search],option
-{
-color           : white;
-background-color: var(--DOM-color);
-border          : none;
-text-align      : center;
-font-family     : monospace;
-font-variant    : small-caps;
-font-weight     : 100;
-outline         : none;
-line-height     : 1ex;
-max-width       : 95vw;
-width           : 1ex;
+
+input[type=search],
+option {
+	color: white;
+	background-color: var(--DOM-color);
+	border: none;
+	text-align: center;
+	font-family: monospace;
+	font-variant: small-caps;
+	font-weight: 100;
+	outline: none;
+	line-height: 1ex;
+	max-width: 95vw;
+	width: 1ex;
 }
-label[for=Id1]:before
-{
-content         : "\\";
+
+label[for=Id1]:before {
+	content: "\\";
 }
-label[for=Id1]:after
-{
-content         : "";
+
+label[for=Id1]:after {
+	content: "";
 }
-label[for=Id2]:before
-{
-content         : "[";
+
+label[for=Id2]:before {
+	content: "[";
 }
-label[for=Id2]:after
-{
-content         : "]";
+
+label[for=Id2]:after {
+	content: "]";
 }
-label[for=Id3]:before{
-content         : "{";
+
+label[for=Id3]:before {
+	content : "{";
 }
-label[for=Id3]:after
-{
-content         : "}";
+
+label[for=Id3]:after {
+	content: "}";
 }
-label:nth-child(1)
-{
-background-color: var(--Id1-color);
-color           : var(--Id1-color);
+
+label:nth-child(1) {
+	background-color: var(--Id1-color);
+	color: var(--Id1-color);
 }
-label:nth-child(1) > input[type=search]
-{
-color           : var(--Id1-color);
+
+label:nth-child(1) > input[type=search] {
+	color: var(--Id1-color);
 }
-label:nth-child(2)
-{
-background-color: var(--Id2-color);
-color           : var(--Id2-color);
+
+label:nth-child(2) {
+	background-color: var(--Id2-color);
+	color: var(--Id2-color);
 }
-label:nth-child(2) > input[type=search]
-{
-color           : var(--Id2-color);
+
+label:nth-child(2) > input[type=search] {
+	color: var(--Id2-color);
 }
-label:nth-child(3)
-{
-background-color: var(--Id3-color);
-color           : var(--Id3-color);
+
+label:nth-child(3) {
+	background-color: var(--Id3-color);
+	color: var(--Id3-color);
 }
-label:nth-child(3) > input[type=search]
-{
-color           : var(--Id3-color);
+
+label:nth-child(3) > input[type=search] {
+	color: var(--Id3-color);
 }
-label:hover
-{
-color           : var(--DOM-color);
+
+label:hover {
+	color: var(--DOM-color);
 }
-.unselectable
-{
--webkit-user-select: none;
--webkit-touch-callout: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+
+.unselectable {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
