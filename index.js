@@ -39,7 +39,7 @@ function theDomisloaded() {
 }
 function bodyclick() {
 	"use strict";
-	document.body.style.backgroundColor = "var(--" + e.target.id + "-color)";
+	document.body.style.backgroundColor = "var(--DOM-color)";
 }
 
 document.addEventListener('DOMContentLoaded', theDomisloaded);
