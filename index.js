@@ -30,6 +30,7 @@ function dokeyup(e) {
 	if (e.target.value.length < 2) {
 		e.target.style.width = "1ex";
 	}
+	modifyTitle();
 }
 
 function dodatalistoption(e) {
@@ -41,6 +42,7 @@ function dodatalistoption(e) {
 	if (e.target.value.length < 2) {
 		e.target.style.width = "1ex";
 	}
+	modifyTitle();
 }
 
 function dokeydown(e) {
@@ -63,6 +65,11 @@ function theDomisloaded() {
 	/* eslint-disable no-console */
 	console.info('DOM');
 	/* eslint-enable no-console */
+}
+
+function modifyTitle() {
+	"use strict";
+	document.title = "\\" + document.getElementById(Id1).value + "[" + document.getElementById(Id2).value  + "]" + "{"  + document.getElementById(Id3).value + "}";
 }
 
 document.addEventListener('DOMContentLoaded', theDomisloaded);
