@@ -1,50 +1,49 @@
 :root {
-	--DOM-color: #1a2238;
-	--Id1-color: #f4db7d;
-	--Id2-color: #9daaf2;
-	--Id3-color: #ff6a3d;
-	--Id1      : "\\"   ;
-	--Is1      : ""     ;
-	--Id2      : "["    ;
-	--Is2      : "]"    ;
-	--Id3      : "{"    ;
-	--Is3      : "}"    ;
+	--DOM-color     : #1a2238;
+	--Id1-color     : #f4db7d;
+	--Id2-color     : #9daaf2;
+	--Id3-color     : #ff6a3d;
+	--Id1           : "\\"   ;
+	--Is1           : ""     ;
+	--Id2           : "["    ;
+	--Is2           : "]"    ;
+	--Id3           : "{"    ;
+	--Is3           : "}"    ;
 }
 
 * {
-	padding: 0px;
-	margin: 0px;
+	padding         : 0px;
+	margin          : 0px;
 }
 
 html {
-	font-size: calc(1em + 1vw);
-	width: 95vw;
-	height: 95vh;
-	padding: 0px;
-	margin: 0px;
+	font-size       : calc(1em + 1vw);
+	width           : 95vw;
+	height          : 95vh;
+	padding         : 0px;
+	margin          : 0px;
 }
 
 body {
-	width: inherit;
-	height: inherit;
+	width           : inherit;
+	height          : inherit;
 	background-color: var(--DOM-color);
 }
 
-h1 {
-	font-size: 2em;
-	display: flex;
-	flex-flow: row;
-	flex-wrap: wrap;
-	max-width: 75vw;
+h2 * {
+	background-color: var(--DOM-color);
 }
 
-h2 {
-	font-size: 1.5em;
+h1, h2 {
+	font-size       : 3em;
+	display         : flex;
+	flex-flow       : row;
+	flex-wrap       : wrap;
+	max-width       : 75vw;
 }
 
-button,
-input {
-	font-size: inherit;
+button, input {
+	font-size       : 1ch;
 }
 
 div.containing-centre {
@@ -55,30 +54,46 @@ div.containing-centre {
 	align-items: center;
 }
 
-input[type=search],
-option {
+input[type=file]{
+ display: none;
+}
+
+span.Id1 {
+ color: var(--Id1-color);
+}
+
+span.Id2 {
+ color: var(--Id2-color);
+}
+
+span.Id3 {
+ color: var(--Id3-color);
+}
+
+input[type="search"], option {
 	color: white;
 	background-color: var(--DOM-color);
 	border: none;
-	text-align: center;
+	text-align: left;
 	font-family: monospace;
-	font-variant: small-caps;
-	font-weight: 100;
-	outline: none;
 	line-height: 1ex;
 	max-width: 95vw;
-	width: 1ex;
+	width: 1ch;
 }
 
-input[type=file] {
+input[type="file"] {
 	visibility:hidden;
 }
 
-label[for=file] {
+label[for="file"] {
 	color:white;
 }
 
-label[for=Id1]:before {
+label[for="file"]:hover {
+	color: var(--DOM-color);
+}
+
+label[for="Id1"]:before {
 	content: var(--Id1);
 }
 
@@ -86,19 +101,19 @@ label[for=Id1]:after {
 	content: var(--Is1);
 }
 
-label[for=Id2]:before {
+label[for="Id2"]:before {
 	content: var(--Id2);
 }
 
-label[for=Id2]:after {
+label[for="Id2"]:after {
 	content: var(--Is2);
 }
 
-label[for=Id3]:before {
+label[for="Id3"]:before {
 	content : var(--Id3);
 }
 
-label[for=Id3]:after {
+label[for="Id3"]:after {
 	content: var(--Is3);
 }
 
@@ -127,18 +142,6 @@ label:nth-child(3) {
 
 label:nth-child(3) > input[type=search] {
 	color: var(--Id3-color);
-}
-
-label:hover {
-	color: var(--DOM-color);
-}
-
-.unselectable {
-	-webkit-user-select: none;
-	-webkit-touch-callout: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-calendar-picker-indicator {
