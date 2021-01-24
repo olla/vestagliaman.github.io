@@ -30,6 +30,10 @@ body {
 	background-color: var(--DOM-color);
 }
 
+html, body {
+	overflow: hidden;
+}
+
 h2 * {
 	background-color: var(--DOM-color);
 }
@@ -48,11 +52,22 @@ button, input {
 
 div.containing-centre {
 	width: inherit;
-	height: inherit;
+	height: 33%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: scroll;
 }
+ /* Hide scrollbar for Chrome, Safari and Opera */
+div.containing-centre::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+div.containing-centre {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
 
 input[type=file]{
  display: none;
@@ -79,6 +94,7 @@ input[type="search"], option {
 	line-height: 1ex;
 	max-width: 95vw;
 	width: 1ch;
+	outline: none;
 }
 
 input[type="file"] {
@@ -87,10 +103,6 @@ input[type="file"] {
 
 label[for="file"] {
 	color:white;
-}
-
-label[for="file"]:hover {
-	color: var(--DOM-color);
 }
 
 label[for="Id1"]:before {
@@ -117,7 +129,7 @@ label[for="Id3"]:after {
 	content: var(--Is3);
 }
 
-label:nth-child(1) {
+label[for="Id1"] {
 	background-color: var(--Id1-color);
 	color: var(--Id1-color);
 }
@@ -126,24 +138,160 @@ label:nth-child(1) > input[type=search] {
 	color: var(--Id1-color);
 }
 
-label:nth-child(2) {
+label[for="Id2"] {
 	background-color: var(--Id2-color);
 	color: var(--Id2-color);
 }
 
-label:nth-child(2) > input[type=search] {
+label[for="Id2"] > input[type=search] {
 	color: var(--Id2-color);
 }
 
-label:nth-child(3) {
+label[for="Id3"] {
 	background-color: var(--Id3-color);
 	color: var(--Id3-color);
 }
 
-label:nth-child(3) > input[type=search] {
+label[for="Id3"] > input[type=search] {
 	color: var(--Id3-color);
 }
 
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-calendar-picker-indicator {
   display: none;
+	-webkit-appearance: none;
+}
+
+label:hover {
+	color: var(--DOM-color);
+}
+
+label[for="math"] {
+	background-color: var(--DOM-color);
+}
+
+input.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+div#lists {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: nowrap;
+	max-height: 100%;
+	background-color: white;
+}
+
+div#list1, div#list2, div#list3 {
+	position: 
+	color: var(--DOM-color);
+ width: 25vw;
+	background-color: white;
+}
+
+#list1 > div, #list2 > div, #list3 > div {
+	background-color: white;
+}
+
+p {
+ border-top: 2px dashed;
+ border-color: var(--DOM-color) !important;
+ margin:0; padding: 30px;
+ counter-increment: section;
+ position: relative;
+	font-family: fantasy;
+	font-size: 70%;
+	word-break: break-all;
+	word-wrap: break-word;
+	background-color: white;
+}
+
+p:nth-child(even):before {
+ content: counter(section);
+ right: 100%; 
+ margin-right: -20px;
+ position: absolute;
+ border-radius: 50%;
+ padding: 10px;
+ height: 20px;
+ width: 30px;
+ background-color: var(--DOM-color);
+ text-align:center;
+ color: white;
+ white-space: nowrap;
+ overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+p:nth-child(odd):before {
+ content: counter(section);
+ left: 100%; 
+ margin-left: -20px;
+ position: absolute;
+ border-radius: 50%;
+ padding: 10px;
+ height: 20px;
+ width: 30px;
+ background-color: var(--DOM-color);
+ text-align:center;
+ color: white;
+ white-space: nowrap;
+ overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+p:nth-child(even) {
+ border-left: 2px dashed;
+ border-top-left-radius: 30px;
+ border-bottom-left-radius: 30px;
+ margin-right: 30px; 
+ padding-right: 0;
+}
+
+p:nth-child(odd) {
+ border-right: 2px dashed;
+ border-top-right-radius: 30px;
+ border-bottom-right-radius: 30px;
+ margin-left: 30px; 
+ padding-left: 0;
+}
+
+p:first-child {
+ border-top: 0;
+ border-top-right-radius:0;
+ border-top-left-radius:0;
+}
+
+p:last-child {
+ border-bottom-right-radius:0;
+ border-bottom-left-radius:0;
+}
+
+div#list1 p:nth-child(odd):before {
+	background-color: var(--Id1-color);
+}
+
+div#list1 p:nth-child(even):before {
+	background-color: var(--Id1-color);
+}
+
+div#list2 p:nth-child(odd):before {
+	background-color: var(--Id2-color);
+}
+
+div#list2 p:nth-child(even):before {
+	background-color: var(--Id2-color);
+}
+
+div#list3 p:nth-child(odd):before {
+	background-color: var(--Id3-color);
+}
+
+div#list3 p:nth-child(even):before {
+	background-color: var(--Id3-color);
 }
